@@ -1,0 +1,27 @@
+html
+    head
+        script(type="text/javascript", src="/public/assets/js/jquery-1.10.2.min.js")
+    body
+        form(action="/register", method="POST")
+            span.label Enter UserName
+            br
+            input(type="text", id="userName", name="userName", required)
+            br
+            br
+            span.label Enter Password
+            br
+            input(type="password", id="password", name="password", required)
+            br
+            br
+            span.label Confirm Password
+            br
+            input(type="password", id="confirmPassword", name="confirmPassword", required)
+            br
+            br
+            input(type="submit", value="Register&Login")
+            input(type="reset", value="Reset")
+        a(href="/") Login
+        - var authorised = isValid;
+        if !authorised && authorised != undefined
+            p(style="color:red;")
+                | #{msg}

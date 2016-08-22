@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<script type="text/javascript" src="/public/assets/js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="/public/model/message.js"></script>
+		<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+		<style type="text/css">
+			#user{
+				float: left;
+				width:50%;
+			}
+			#messages{
+				height: 300px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="user">
+			<h1>Chat App</h1>
+			<div id="messages"></div>
+			<input type"text" id="myMsg">
+			<input type="button" id="sendMsg" value="send">
+		</div>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				var messages = $('#myMsg');
+				var myMsg = $('#myMsg');
+				var socket = io.connect();
+				$('#user #sendMsg').click(function(e){
+					sendMessage();
+				});
+				$('#user #myMsg').bind('keyup', function(e) {
+					if ( e.keyCode === 13 ) {
+						sendMessage();
+					}
+				});
+				function sendMessage(){
+					socket.emit('send message', new Message('test1','test2',myMsg.val()) );
+					myMsg.val('');
+				}
+			});			
+		</script>
+	</body>
+</html>

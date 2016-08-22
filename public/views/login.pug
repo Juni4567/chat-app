@@ -1,0 +1,22 @@
+html
+    head
+        script(type="text/javascript", src="/public/assets/js/jquery-1.10.2.min.js")
+    body
+        form(action="/authenticate", method="POST")
+            span.label Enter UserName
+            br
+            input(type="text", id="userName", name="userName", required)
+            br
+            br
+            span.label Enter Password
+            br
+            input(type="password", id="password", name="password", required)
+            br
+            br
+            input(type="submit", value="Login")
+            input(type="reset", value="Reset")
+        a(href="/register") New User
+        - var authorised = isValidUser;
+        if !authorised && authorised != undefined
+            p(style="color:red;")
+                | Please verify your details.

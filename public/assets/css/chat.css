@@ -1,0 +1,31 @@
+#errorMsg{
+	color: red;
+	display: none;
+}
+#userListDiv{
+	float: left;
+	width: 20%;
+}
+#user{
+	float: left;
+	width: 50%;
+}
+#messages{
+	max-height: 300px;
+	overflow: auto;
+}
+.online{
+	background: green;
+}
+.offline{
+	background: grey;
+}
+.online, .offline{
+    display: inline-block;
+    text-indent: -9999px;
+    width: 15px;
+    height: 15px;
+    margin-top: 20px;
+    vertical-align: text-bottom;
+    border-radius: 50%;
+}

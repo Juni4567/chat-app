@@ -1,0 +1,24 @@
+html
+	head
+		script(type="text/javascript", src="/public/assets/js/jquery-1.10.2.min.js")
+		script(type="text/javascript", src="/public/model/message.js")
+		script(type="text/javascript", src="/socket.io/socket.io.js")
+		script.
+			var token = '#{token}';
+			var userName = '#{userName}';
+		script(type="text/javascript", src="/public/assets/js/chat.js")
+		link(href='/public/assets/css/chat.css', rel='stylesheet')
+	body
+		h4
+			| You are logged in as #{userName}
+		div(id="errorMsg")
+		div(id="userListDiv")
+			h3
+				| Users
+			div(id="usersList")
+		div(id="user")
+			h1
+				| Chat App
+			div(id="messages")
+			input(type"text", id="myMsg")
+			input(type="button", id="sendMsg", value="send")
